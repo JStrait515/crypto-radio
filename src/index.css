@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-amber-glow: #f59e0b;
+  --color-amber-dim: #92400e;
+  --color-radio-dark: #1a1207;
+  --color-radio-wood: #3d2b1f;
+  --color-radio-wood-light: #5c3d2e;
+  --color-radio-metal: #4a4a4a;
+  --color-lcd-bg: #1a2e1a;
+  --color-lcd-text: #39ff14;
+  --color-vu-green: #00ff41;
+  --color-vu-amber: #ffbf00;
+  --color-vu-red: #ff3333;
+}
+
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: 'Courier New', monospace;
+  color: #e0d5c7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Scrolling ticker animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker-scroll {
+  animation: ticker-scroll 30s linear infinite;
+}
+
+/* Pulsing glow for ON AIR */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px #f59e0b, 0 0 10px #f59e0b40; }
+  50% { box-shadow: 0 0 15px #f59e0b, 0 0 30px #f59e0b60; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Tuning static effect */
+@keyframes static-noise {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.tuning-static {
+  animation: static-noise 0.1s steps(3) infinite;
+}
+
+/* LCD flicker */
+@keyframes lcd-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+}
+
+.lcd-text {
+  animation: lcd-flicker 4s ease-in-out infinite;
+  text-shadow: 0 0 8px #39ff14;
+}
