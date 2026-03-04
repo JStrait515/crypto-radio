@@ -4,7 +4,7 @@ An AI radio station that delivers live cryptocurrency market updates through syn
 
 **Built for the AI Builder Competition - Week 4: "Soundwave"**
 
-**[Live App](https://crypto-radio-lyart.vercel.app/)**
+**Live App:** https://crypto-radio-lyart.vercel.app
 
 ![CryptoFM Screenshot](screenshot.png)
 
