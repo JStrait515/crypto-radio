@@ -45,7 +45,7 @@ export function useRadioStation() {
       const ttsRes = await fetch('/api/text-to-speech', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: script }),
+        body: JSON.stringify({ text: script, segment: segmentId }),
       });
       if (!ttsRes.ok) {
         const errBody = await ttsRes.text().catch(() => '');

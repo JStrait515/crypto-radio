@@ -9,13 +9,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { text } = req.body;
+    const { text, segment } = req.body;
     if (!text) {
       return res.status(400).json({ error: 'Text is required' });
     }
 
-    // "Adam" voice - deep, warm, radio-friendly
-    const voiceId = 'pNInz6obpgDQGcFmaJgB';
+    // Different voice per station for variety
+    const VOICES = {
+      overview: 'pNInz6obpgDQGcFmaJgB', // Adam - deep, authoritative
+      movers:   'ErXwobaYiN019PkySvjV', // Antoni - warm, engaging
+      bitcoin:  'VR6AewLTigWG4xSOukaG', // Arnold - bold, confident
+      mood:     'EXAVITQu4vr4xnSDxMaL', // Bella - expressive, vibey
+    };
+    const voiceId = VOICES[segment] || VOICES.overview;
 
     const response = await fetch(
       `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
