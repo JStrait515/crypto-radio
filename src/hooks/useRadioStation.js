@@ -20,7 +20,10 @@ export function useRadioStation() {
       // Step 2: Fetch market data
       setStatus('fetching');
       const dataRes = await fetch(`/api/market-data?segment=${segmentId}`);
-      if (!dataRes.ok) throw new Error('Failed to fetch market data');
+      if (!dataRes.ok) {
+        const errBody = await dataRes.text().catch(() => '');
+        throw new Error(`Failed to fetch market data: ${dataRes.status} ${errBody}`);
+      }
       const marketData = await dataRes.json();
 
       // Step 3: Generate DJ script
@@ -30,7 +33,10 @@ export function useRadioStation() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ segment: segmentId, marketData }),
       });
-      if (!scriptRes.ok) throw new Error('Failed to generate script');
+      if (!scriptRes.ok) {
+        const errBody = await scriptRes.text().catch(() => '');
+        throw new Error(`Failed to generate script: ${scriptRes.status} ${errBody}`);
+      }
       const { script } = await scriptRes.json();
       setTranscript(script);
 
@@ -41,7 +47,10 @@ export function useRadioStation() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: script }),
       });
-      if (!ttsRes.ok) throw new Error('Failed to synthesize speech');
+      if (!ttsRes.ok) {
+        const errBody = await ttsRes.text().catch(() => '');
+        throw new Error(`Failed to synthesize speech: ${ttsRes.status} ${errBody}`);
+      }
       const audioBlob = await ttsRes.blob();
 
       // Step 5: Play audio

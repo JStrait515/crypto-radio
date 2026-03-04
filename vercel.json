@@ -1,4 +1,15 @@
 {
+  "functions": {
+    "api/generate-script.js": {
+      "maxDuration": 30
+    },
+    "api/text-to-speech.js": {
+      "maxDuration": 30
+    },
+    "api/market-data.js": {
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
