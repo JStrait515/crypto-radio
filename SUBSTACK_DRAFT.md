@@ -33,7 +33,7 @@ The most fun part was getting the voices right. Each station has its own ElevenL
 
 ## Links
 
-- **Live app:** [https://crypto-radio-lyart.vercel.app](https://crypto-radio-lyart.vercel.app)
-- **GitHub repo:** [https://github.com/JStrait515/crypto-radio](https://github.com/JStrait515/crypto-radio)
+- **Live app:** https://crypto-radio-lyart.vercel.app
+- **GitHub repo:** https://github.com/JStrait515/crypto-radio
 
 Tune in and turn it up. See you in Week 5.
